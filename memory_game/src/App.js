@@ -3,10 +3,12 @@ import CharacterCard from './components/CharacterCard/index';
 import Wrapper from './components/Wrapper/index';
 import characters from './characters.json';
 import Jumbotron from "./components/Jumbotron/jumbo";
+import Navbar from "./components/Navbar/navbar"
 
 function App () {
     return (
         <Wrapper>
+            <Navbar />
             <Jumbotron />
             <h2 className="title">React Memory Game!</h2>
             <CharacterCard 
