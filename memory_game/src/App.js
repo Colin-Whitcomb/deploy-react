@@ -2,10 +2,12 @@ import React from "react";
 import CharacterCard from './components/CharacterCard/index';
 import Wrapper from './components/Wrapper/index';
 import characters from './characters.json';
+import Jumbotron from "./components/Jumbotron/jumbo";
 
 function App () {
     return (
         <Wrapper>
+            <Jumbotron />
             <h2 className="title">React Memory Game!</h2>
             <CharacterCard 
                 name={characters[0].name}
