@@ -1,10 +1,11 @@
 import React from 'react';
+import "./style.css";
 
 
 function jumbotron(props) {
     return (
         <div className="jumbotron jumbotron-fluid">
-    <div className="container">
+    <div className="container text-center">
     <h1 className="display-4">Avatar Memory Game</h1>
     {props.message ? (<h1 className="navbar-brand" >{props.message}</h1>) : (<h1 className="navbar-brand" >Click an image to start the game!</h1>)}
     <br></br>

@@ -16,7 +16,7 @@ class App extends Component {
         count: 0,
         chosenCharacters: [],
         highScore: 0,
-        message: "Click an image to start the game!",
+        message: "Try to guess all 12 characters without clicking duplicates. Click an image to start!",
     };
   
     wasClicked = id => { 
