@@ -2,10 +2,10 @@ import React from 'react';
 
 function jumbotron(props) {
     return (
-        <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-    <h1 class="display-4">React memory Game!</h1>
-    <p class="lead">Don't pick the same avatar! (pun <i>intended</i>)</p>
+        <div className="jumbotron jumbotron-fluid">
+    <div className="container">
+    <h1 className="display-4">React memory Game!</h1>
+    <p className="lead">Don't pick the same avatar! (pun <i>intended</i>)</p>
   </div>
 </div>
     )

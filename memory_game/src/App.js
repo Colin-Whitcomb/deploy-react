@@ -4,7 +4,8 @@ import Wrapper from './components/Wrapper/index';
 import characters from './characters.json';
 import Jumbotron from "./components/Jumbotron/jumbo";
 import Navbar from "./components/Navbar/navbar"
-
+import { Container, Row, } from './components/Container/container.js'
+// import { Container, Row, Col } from 'react-bootstrap'
 
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
         count: 0,
         chosenCharacters: [],
         highScore: 0,
-        message: "",
+        message: "Click to begin",
     };
   
     wasClicked = id => { 
@@ -74,7 +75,10 @@ class App extends Component {
                 message={this.state.message}
                 />
                 <Jumbotron />
-                
+
+                <Container>
+                    <Row>
+                      
                 {this.state.characters.map(character => (
                     <CharacterCard 
                     chooseCharacter={this.wasClicked}
@@ -83,7 +87,9 @@ class App extends Component {
                     id={character.id}
                 />
                 ))}
-              
+                        
+                    </Row>
+                </Container>
             </Wrapper>
         );
     }
