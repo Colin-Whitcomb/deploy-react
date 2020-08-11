@@ -9,28 +9,55 @@ import Navbar from "./components/Navbar/navbar"
 
 class App extends Component {
 
-    chosenCharacters = [];
     
-
     state = {
         characters: characters,
-        count: 1
+        count: 0,
+        chosenCharacters: [],
+        highScore: 0,
+        message: "",
     };
   
-    chooseCharacter = id => { 
+    wasClicked = id => { 
        
-        this.chosenCharacters = this.chosenCharacters.concat(id);
-        this.setState({ count: this.state.count + 1 });
-        console.log(this.state.count);
-        console.log(this.chosenCharacters);  
+        // call game functions
+        this.checkChosen(id);
 
         this.setState({
             characters: this.shuffleCards(characters)
         })
     };
+
+    checkChosen = id => {
+        // if user has already chosen, reset game
+        if (this.state.chosenCharacters.includes(id)) {
+            this.setState({
+                chosenCharacters: [],
+                count: 0,
+                message: "Already picked, try again"
+             })
+        } else {
+            this.state.chosenCharacters.push(id);
+            let currentScore = this.state.chosenCharacters.length;
+            console.log(currentScore);
+            if (this.state.highScore < currentScore){
+                this.setState({
+                    message: "Good pick! Choose again.",
+                    count: currentScore,
+                    highScore: currentScore,
+                })
+            } else {
+                this.setState({
+                    message: "Good pick! Choose again.",
+                    count: currentScore,
+                })
+            }
+        }
+    }
     
     shuffleCards = array => {
-        var j, x, i;
+        // eslint-disable-next-line
+        var j, x;
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
@@ -41,11 +68,16 @@ class App extends Component {
     render () {
         return (
             <Wrapper>
-                <Navbar />
+                <Navbar
+                count={this.state.count}
+                highScore={this.state.highScore}
+                message={this.state.message}
+                />
                 <Jumbotron />
+                
                 {this.state.characters.map(character => (
                     <CharacterCard 
-                    chooseCharacter={this.chooseCharacter}
+                    chooseCharacter={this.wasClicked}
                     name={character.name}
                     image={character.image}
                     id={character.id}

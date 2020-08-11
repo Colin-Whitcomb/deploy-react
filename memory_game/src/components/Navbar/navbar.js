@@ -4,8 +4,8 @@ import React from "react";
         return (
         <nav className="navbar navbar-dark bg-dark">
              <a className="navbar-brand" href="/">React Game</a>
-             <h4 className="navbar-brand" >Click to start!</h4>
-             <h4 className="navbar-brand" >Total Score:{props.count} </h4>
+             {props.message ? (<h4 className="navbar-brand" >{props.message}</h4>) : (<h4 className="navbar-brand" >Click an image to start the game!</h4>)}
+             <h4 className="navbar-brand" >Score: {props.count} | High Score {props.highScore}</h4>
       </nav>
         )
     }
