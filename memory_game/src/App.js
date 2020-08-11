@@ -16,7 +16,7 @@ class App extends Component {
         count: 0,
         chosenCharacters: [],
         highScore: 0,
-        message: "Click to begin",
+        message: "Click an image to start the game!",
     };
   
     wasClicked = id => { 
@@ -70,11 +70,15 @@ class App extends Component {
         return (
             <Wrapper>
                 <Navbar
+                // count={this.state.count}
+                // highScore={this.state.highScore}
+                // message={this.state.message}
+                />
+                <Jumbotron 
                 count={this.state.count}
                 highScore={this.state.highScore}
                 message={this.state.message}
                 />
-                <Jumbotron />
 
                 <Container>
                     <Row>
@@ -85,6 +89,7 @@ class App extends Component {
                     name={character.name}
                     image={character.image}
                     id={character.id}
+            
                 />
                 ))}
                         
